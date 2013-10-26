@@ -12,8 +12,8 @@ end
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box = _conf["box_name"] || "CentOS_6.4"
-  config.vm.box_url = _conf["box_url"] || "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130731.box"
+  config.vm.box = "Debian_7.2"
+  config.vm.box_url = "https://dl.dropboxusercontent.com/u/197673519/debian-7.2.0.box"
 
   unless _conf["private_ip_disable"]
     config.vm.network :private_network, ip: (_conf["private_ip"] || "192.168.33.11")
@@ -29,11 +29,10 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.run_list = %w(
-      yum
+      apt
       sqlite
       mysql::client
       mysql::server
-      redis::server_package
       ruby_build
       rbenv::user
       timezone-ii

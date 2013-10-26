@@ -1,4 +1,8 @@
-service "redis" do
+package "redis-server" do
+  action :install
+end
+
+service "redis-server" do
   action :start
 end
 
