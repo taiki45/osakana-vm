@@ -53,7 +53,8 @@ Vagrant.configure("2") do |config|
             "2.0.0-p247" => [
               {name: "rbenv-rehash"},
               {name: "bundler"},
-              {name: "pry"}
+              {name: "pry"},
+              {name: "sinatra"}
             ]
           }
         }]

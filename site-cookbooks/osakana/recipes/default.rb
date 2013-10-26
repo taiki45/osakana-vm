@@ -1,3 +1,7 @@
+service "redis" do
+  action :start
+end
+
 file_option = proc do
   owner "vagrant"
   group "vagrant"
