@@ -1,0 +1,5 @@
+/cookbooks/
+.vagrant
+tmp
+Berksfile.lock
+config.yml
