@@ -33,6 +33,7 @@ Vagrant.configure("2") do |config|
       sqlite
       mysql::client
       mysql::server
+      redis::server_package
       ruby_build
       rbenv::user
       timezone-ii
