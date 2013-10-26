@@ -14,6 +14,10 @@ end
   end
 end
 
+file "/home/vagrant/install.sh" do
+  action :delete
+end
+
 directory "/home/vagrant/.zsh" do
   owner "vagrant"
   group "vagrant"

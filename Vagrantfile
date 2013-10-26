@@ -52,7 +52,8 @@ Vagrant.configure("2") do |config|
           gems: {
             "2.0.0-p247" => [
               {name: "rbenv-rehash"},
-              {name: "bundler"}
+              {name: "bundler"},
+              {name: "pry"}
             ]
           }
         }]
