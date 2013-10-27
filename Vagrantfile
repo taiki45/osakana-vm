@@ -12,8 +12,8 @@ end
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "Debian_7.2"
-  config.vm.box_url = "https://dl.dropboxusercontent.com/u/197673519/debian-7.2.0.box"
+  config.vm.box = "CentOS_6.3"
+  config.vm.box_url = "https://s3.amazonaws.com/itmat-public/centos-6.3-chef-10.14.2.box"
 
   unless _conf["private_ip_disable"]
     config.vm.network :private_network, ip: (_conf["private_ip"] || "192.168.33.11")
@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.run_list = %w(
-      apt
+      yum
       sqlite
       mysql::client
       mysql::server

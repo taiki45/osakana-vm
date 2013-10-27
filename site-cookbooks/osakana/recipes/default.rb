@@ -1,8 +1,13 @@
-package "redis-server" do
-  action :install
+include_recipe "redis::server_package"
+
+case node.platform_family
+when "debian"
+  pkg = node.redis.package_name
+else
+  pkg = "redis"
 end
 
-service "redis-server" do
+service pkg do
   action :start
 end
 
