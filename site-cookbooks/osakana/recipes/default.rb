@@ -1,4 +1,5 @@
 include_recipe "redis::server_package"
+include_recipe "osakana::haskell"
 
 case node.platform_family
 when "debian"
@@ -27,8 +28,10 @@ end
   end
 end
 
-file "/home/vagrant/install.sh" do
-  action :delete
+%w(postinstall.sh install.sh).each do |name|
+  file "/home/vagrant/#{name}" do
+    action :delete
+  end
 end
 
 directory "/home/vagrant/.zsh" do
